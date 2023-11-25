@@ -4,7 +4,6 @@ plugins {
 }
 
 group = 'net.leibi'
-version = '0.0.1-SNAPSHOT'
 
 java {
     sourceCompatibility = '21'
