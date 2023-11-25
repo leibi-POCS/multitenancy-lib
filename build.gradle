@@ -47,3 +47,5 @@ publishing {
 tasks.named('test') {
     useJUnitPlatform()
 }
+
+reckonTagCreate.dependsOn check, test
