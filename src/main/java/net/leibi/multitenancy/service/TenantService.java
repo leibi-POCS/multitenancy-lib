@@ -1,7 +1,7 @@
-package net.leibi.multitenancylib.service;
+package net.leibi.multitenancy.service;
 
 
-import net.leibi.multitenancylib.config.Tenant;
+import net.leibi.multitenancy.config.Tenant;
 import org.springframework.lang.NonNull;
 
 import java.util.List;

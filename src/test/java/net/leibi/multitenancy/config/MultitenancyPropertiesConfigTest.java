@@ -1,4 +1,4 @@
-package net.leibi.multitenancylib.config;
+package net.leibi.multitenancy.config;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
