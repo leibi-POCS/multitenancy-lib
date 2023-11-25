@@ -22,7 +22,7 @@ jobs:
         uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          arguments: build -Preckon.stage=final reckonTagCreate reckonTagPush
+          arguments: build -Preckon.stage=final reckonTagCreate
       - name: Deploy artifacts to GitHub Packages
         uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
         with:
