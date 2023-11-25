@@ -7,7 +7,7 @@ on:
 
 permissions:
   packages: write
-  contents: read
+  contents: write
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -28,6 +28,11 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           arguments: build -Preckon.stage=final reckonTagCreate
+      - name: Push git tag
+        uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          arguments: reckonTagPush
       - name: Deploy artifacts to GitHub Packages
         uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
         with:
