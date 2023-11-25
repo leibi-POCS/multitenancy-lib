@@ -1,7 +1,7 @@
 name: Default build pipeline
 
 on:
-  push:
+  pull_request:
     branches: [ "main", "master" ]
   workflow_dispatch:
 
@@ -21,10 +21,5 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
         with:
-          arguments: build -Preckon.stage=final reckonTagCreate reckonTagPush
-      - name: Deploy artifacts to GitHub Packages
-        uses: gradle/gradle-build-action@842c587ad8aa4c68eeba24c396e15af4c2e9f30a # v2.9.0
-        with:
-          GPR_USERNAME: ${{ github.actor }}
-          GPR_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          arguments: publish
+          arguments: build
+
