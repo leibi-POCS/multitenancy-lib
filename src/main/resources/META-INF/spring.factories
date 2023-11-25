@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  net.leibi.multitenancy.config.MultitenancyPropertiesConfig,\
+  net.leibi.multitenancy.config.TenantServiceAutoConfiguration
