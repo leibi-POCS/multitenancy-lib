@@ -24,9 +24,23 @@ dependencies {
 }
 
 publishing {
+
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/leibi-poc/multitenancy-lib")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("TOKEN")
+            }
+        }
+    }
     publications {
         mavenJava(MavenPublication) {
             artifact jar
+        }
+        gpr(MavenPublication) {
+            from(components.java)
         }
     }
 }
