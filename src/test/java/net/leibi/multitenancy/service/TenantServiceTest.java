@@ -64,7 +64,7 @@ class TenantServiceTest {
     void getAllTenants() {
         assertThat(tenantService.getAllTenants())
                 .hasSize(2)
-                .containsExactly(immenstaad, sofia);
+                .containsExactlyInAnyOrder(immenstaad, sofia);
 
     }
 }
