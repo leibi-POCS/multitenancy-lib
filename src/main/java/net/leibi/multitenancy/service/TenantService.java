@@ -21,4 +21,6 @@ public interface TenantService {
     Optional<Tenant> getTenantMatchingHost(@NonNull String host);
 
     List<Tenant> getAllTenants();
+
+    void unsetTenant();
 }

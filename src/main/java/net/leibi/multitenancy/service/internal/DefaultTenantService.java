@@ -47,6 +47,11 @@ public class DefaultTenantService implements TenantService {
         return multitenancyPropertiesConfig.getTenants().values().stream().toList();
     }
 
+    @Override
+    public void unsetTenant() {
+        currentTenant.remove();
+    }
+
     private List<Tenant> getTenantsMatchingHost(String host) {
         return getAllTenants().stream().filter(tenant -> tenant.host().equalsIgnoreCase(host)).toList();
     }
