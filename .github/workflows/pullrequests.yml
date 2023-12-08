@@ -25,5 +25,5 @@ jobs:
         with:
           GPR_USERNAME: ${{ github.actor }}
           GPR_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-          arguments: build
+          arguments: build sonar
 
