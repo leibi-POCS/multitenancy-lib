@@ -2,6 +2,7 @@ plugins {
   id 'java-library'
   id 'maven-publish'
   id 'jacoco'
+  id 'org.sonarqube' version '4.4.1.3373'
 }
 
 group = 'net.leibi'
@@ -58,6 +59,14 @@ test {
 }
 jacocoTestReport {
   dependsOn test // tests are required to run before generating the report
+}
+
+sonar {
+  properties {
+    property "sonar.projectKey", "leibi-POCS_multitenancy-lib"
+    property("sonar.organization", "leibi-pocs")
+    property "sonar.host.url", "https://sonarcloud.io"
+  }
 }
 
 
