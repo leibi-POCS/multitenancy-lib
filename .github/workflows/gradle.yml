@@ -27,9 +27,10 @@ jobs:
           distribution: 'graalvm'
       - name: Build with Gradle
         uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           arguments: build sonar -Preckon.stage=final -Preckon.scope=patch reckonTagCreate
       - name: Push git tag
         uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
