@@ -26,19 +26,19 @@ jobs:
           java-version: '21'
           distribution: 'graalvm'
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+        uses: gradle/gradle-build-action@29c0906b64b8fc82467890bfb7a0a7ef34bda89e # v3.1.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           arguments: build sonar -Preckon.stage=final -Preckon.scope=patch reckonTagCreate
       - name: Push git tag
-        uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+        uses: gradle/gradle-build-action@29c0906b64b8fc82467890bfb7a0a7ef34bda89e # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           arguments: reckonTagPush
       - name: Deploy artifacts to GitHub Packages
-        uses: gradle/gradle-build-action@87a9a15658c426a54dd469d4fc7dc1a73ca9d4a6 # v2.10.0
+        uses: gradle/gradle-build-action@29c0906b64b8fc82467890bfb7a0a7ef34bda89e # v3.1.0
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           arguments: publish
